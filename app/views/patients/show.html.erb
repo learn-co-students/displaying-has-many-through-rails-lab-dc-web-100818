@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Patient</title>
+</head>
+<body>
+  <h1>Patient: <%= @patient.name %></h1>
+  <% @patient.appointments.each do |appointment| %>
+    <% utc = appointment.appointment_datetime %>
+    <%= link_to appointment.doctor.name, doctor_path(appointment.doctor) %>
+    Appointment - <%= utc.strftime("%B %d, %Y at %T")%>
+    <br>
+  <% end %>
+</body>
+</html>
