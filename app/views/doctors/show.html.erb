@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @doctor.name %></title>
+  </head>
+  <body>
+    <h1><%= @doctor.name %></h1>
+    <h2><%= @doctor.department %></h2>
+    <% @doctor.appointments.each do |appt| %>
+      <p><a href="<%= patient_path(appt.patient.id) %>"><%= appt.patient.name %> on <%= appt.appointment_datetime.strftime("%B %d, %Y at %H:%M:%S") %></a></p>
+    <% end %>
+  </body>
+</html>
